@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="CapitalBikeshare" Class="CaBiDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=oak.arvixe.com;Initial Catalog=CapitalBikeshare;Persist Security Info=True;User ID=kylehill" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="CapitalBikeshareConnectionString1" Provider="System.Data.SqlClient" />
+  <Table Name="kylehill.Stations" Member="PulledStations">
+    <Type Name="PulledStation">
+      <Column Name="StationID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="StationName" Type="System.String" DbType="VarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="Latitude" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Longitude" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Installed" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Locked" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Temporary" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="InstallDateSignature" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="RemovalDateSignature" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Docked" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Empty" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="PulledStation_PullResult" Member="PullResults" ThisKey="StationID" OtherKey="StationID" Type="PullResult" />
+    </Type>
+  </Table>
+  <Table Name="kylehill.Pulls" Member="Pulls">
+    <Type Name="Pull">
+      <Column Name="PullID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="DateSignature" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="PullDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Association Name="Pull_PullResult" Member="PullResults" ThisKey="PullID" OtherKey="PullID" Type="PullResult" />
+    </Type>
+  </Table>
+  <Table Name="kylehill.PullResults" Member="PullResults">
+    <Type Name="PullResult">
+      <Column Name="PullResultID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="PullID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="StationID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Installed" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="Locked" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="Temporary" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="Docked" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Empty" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Pull_PullResult" Member="Pull" ThisKey="PullID" OtherKey="PullID" Type="Pull" IsForeignKey="true" />
+      <Association Name="PulledStation_PullResult" Member="PulledStation" ThisKey="StationID" OtherKey="StationID" Type="PulledStation" IsForeignKey="true" />
+    </Type>
+  </Table>
+</Database>

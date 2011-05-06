@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.875" name="CaBi">
+  <DataContextMoniker Name="/CaBiDataContext" />
+  <nestedChildShapes>
+    <classShape Id="1e0372be-f160-46ca-879f-218b20708334" absoluteBounds="0.75, 5.75, 2, 2.9247054036458318">
+      <DataClassMoniker Name="/CaBiDataContext/PulledStation" />
+      <nestedChildShapes>
+        <elementListCompartment Id="91dfa368-69c5-48d6-944b-aee8df8aaa23" absoluteBounds="0.765, 6.21, 1.9700000000000002, 2.364705403645833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="f8c9fc71-caac-42c6-b0c9-46be287b1a22" absoluteBounds="0.75, 1.375, 2, 1.3862939453125003">
+      <DataClassMoniker Name="/CaBiDataContext/Pull" />
+      <nestedChildShapes>
+        <elementListCompartment Id="4c93cc4c-5ebc-4c72-8823-f1d38436f891" absoluteBounds="0.765, 1.835, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="d9d66fcf-32bd-48c5-9549-95993269f70a" absoluteBounds="4.625, 1.875, 2, 2.3478011067708335">
+      <DataClassMoniker Name="/CaBiDataContext/PullResult" />
+      <nestedChildShapes>
+        <elementListCompartment Id="38bdb0ea-f4a3-48a2-b834-071ede7bfd76" absoluteBounds="4.64, 2.335, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(2.75 : 2.31814697265625); (4.625 : 2.31814697265625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/CaBiDataContext/Pull/Pull_PullResult" />
+      <nodes>
+        <classShapeMoniker Id="f8c9fc71-caac-42c6-b0c9-46be287b1a22" />
+        <classShapeMoniker Id="d9d66fcf-32bd-48c5-9549-95993269f70a" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 7.21235270182292); (5.625 : 7.21235270182292); (5.625 : 4.22280110677083)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/CaBiDataContext/PulledStation/PulledStation_PullResult" />
+      <nodes>
+        <classShapeMoniker Id="1e0372be-f160-46ca-879f-218b20708334" />
+        <classShapeMoniker Id="d9d66fcf-32bd-48c5-9549-95993269f70a" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>
